@@ -27,6 +27,7 @@
                                             <th th:text="#{persona.user}">Usuario</th>
                                             <th></th>
                                             <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,6 +48,12 @@
                                                 <a th:href="@{/eliminarPersona(idPersona=${persona.idPersona})}"
                                                    class="btn btn-dark">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{/verPersona(idPersona=${persona.idPersona})}"
+                                                   class="btn btn-dark">
+                                                    <i class="fas fa-angle-double-right"></i> Ver
                                                 </a>
                                             </td>
                                         </tr>

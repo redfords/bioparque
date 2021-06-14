@@ -7,7 +7,7 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <section sec:authorize="hasRole('ROLE_CUIDADOR')" th:fragment="listadoCuidadorEspecies" id="listadoCuidadorEspecies">
+        <section sec:authorize="hasAnyRole('ROLE_CUIDADOR','ROLE_ADMIN')" th:fragment="listadoCuidadorEspecies" id="listadoCuidadorEspecies">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">

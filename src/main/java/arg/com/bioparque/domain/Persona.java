@@ -32,6 +32,8 @@ public class Persona implements Serializable{
     @Column(name = "user_name")
     private String userName;
     
+    private String usuario;
+    
     @OneToMany(mappedBy = "persona")
     private List<CuidadorEspecie> cuidadorEspecies;
     

@@ -98,6 +98,19 @@ public class ControladorInicio {
         return "modificarPersona";
     }
     
+    @GetMapping("/verPersona")
+    public String verPersona(Persona persona, Model model){
+        persona = personaRepository.findById(persona.getIdPersona()).orElse(null);
+        if(persona.getUsuario().equals("cuidador")){
+            List<CuidadorEspecie> cuidadorEspecies = cuidadorEspecieRepository.findByPersona(persona);
+            model.addAttribute("cuidadorEspecies", cuidadorEspecies);
+            return "adminModificarCuidadorEspecie";
+        }else if(persona.getUsuario().equals("guia")){
+            return "redirect:/";
+        }
+        return "redirect:/";
+    }
+    
     @PostMapping("/guardarPersona")
     public String guardar(@Valid Persona persona, Errors errores){
         if(errores.hasErrors()){

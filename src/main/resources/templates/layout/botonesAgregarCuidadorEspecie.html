@@ -10,7 +10,7 @@
         <section th:fragment="botonesAgregarCuidadorEspecie" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3" sec:authorize="hasRole ('ROLE_CUIDADOR')">
+                    <div class="col-md-3" sec:authorize="hasAnyRole ('ROLE_CUIDADOR','ROLE_ADMIN')">
                         <a href="#" class="btn btn-primary btn-block"
                             data-toggle="modal" data-target="#agregarCuidadorEspecie">
                             <i class="fas fa-plus"></i>[[#{accion.agregar}]]
