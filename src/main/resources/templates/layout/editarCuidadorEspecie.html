@@ -11,6 +11,8 @@
             <form th:action="@{/guardarCuidadorEspecie}" th:object="${cuidadorEspecie}"
                   method="POST" class="was-validated">
                 <input type="hidden" name="idCuidadorEspecie" th:field="*{idCuidadorEspecie}"/>
+                <input type="hidden" name="persona.idPersona" th:field="*{persona.idPersona}"/>
+                <input type="hidden" name="especie.idEspecie" th:field="*{especie.idEspecie}"/>
                 <section th:replace="layout/botonesEditarCuidadorEspecie :: botonesEditarCuidadorEspecie"></section>
                 <div id="details">
                     <div class="container">

@@ -17,11 +17,11 @@ public class CuidadorEspecie implements Serializable{
     private Long idCuidadorEspecie;
     
     @JoinColumn(name = "id_persona", referencedColumnName = "id_persona")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Persona persona;
     
     @JoinColumn(name = "id_especie", referencedColumnName = "id_especie")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Especie especie;
     
 }

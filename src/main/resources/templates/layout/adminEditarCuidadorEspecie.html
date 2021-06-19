@@ -1,13 +1,31 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Listado Especies</title>
+    <head th:replace="layout/plantilla :: head">
+        <title>Datos de las especies</title>
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <section sec:authorize="hasRole('ROLE_CUIDADOR')" th:fragment="listadoCuidadorEspecies" id="listadoCuidadorEspecies">
+        <section th:fragment="adminEditarCuidadorEspecie">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a th:href="@{/}" class="btn btn-ligth btn-block">
+                                <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                            </a>
+                        </div>
+                        <div class="col-md-3" sec:authorize="hasRole ('ROLE_ADMIN')">
+                            <a href="#" class="btn btn-primary btn-block"
+                                data-toggle="modal" data-target="#agregarCuidadorEspecie">
+                                <i class="fas fa-plus"></i>[[#{accion.agregar}]]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
@@ -23,6 +41,8 @@
                                             <th th:text="#{especie.nombre}">Nombre</th>
                                             <th th:text="#{especie.nombre-cientifico}">Nombre Científico</th>
                                             <th th:text="#{especie.descripcion}">Descripcion</th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -31,6 +51,18 @@
                                             <td>[[${cuidadorEspecie.especie.nombre}]]</td>
                                             <td>[[${cuidadorEspecie.especie.nombreCientifico}]]</td>
                                             <td>[[${cuidadorEspecie.especie.descripcion}]]</td>
+                                            <td>
+                                                <a th:href="@{/editarCuidadorEspecie/} + ${cuidadorEspecie.idCuidadorEspecie}"
+                                                   class="btn btn-secondary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{/eliminarCuidadorEspecie(idCuidadorEspecie=${cuidadorEspecie.idCuidadorEspecie})}"
+                                                   class="btn btn-dark">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

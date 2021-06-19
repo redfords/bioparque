@@ -79,7 +79,9 @@ public class ControladorInicio {
         if(errores.hasErrors()){
             return "modificarCuidadorEspecie";
         }
-        
+        Persona persona = personaRepository.findById(cuidadorEspecie.getPersona().getIdPersona()).orElse(null);
+        especieRepository.save(cuidadorEspecie.getEspecie());
+        cuidadorEspecie.setPersona(persona);
         cuidadorEspecieRepository.save(cuidadorEspecie);
         
         return "redirect:/";
@@ -101,11 +103,11 @@ public class ControladorInicio {
     @GetMapping("/verPersona")
     public String verPersona(Persona persona, Model model){
         persona = personaRepository.findById(persona.getIdPersona()).orElse(null);
-        if(persona.getUsuario().equals("cuidador")){
+        if(persona.getRol().equals("cuidador")){
             List<CuidadorEspecie> cuidadorEspecies = cuidadorEspecieRepository.findByPersona(persona);
             model.addAttribute("cuidadorEspecies", cuidadorEspecies);
             return "adminModificarCuidadorEspecie";
-        }else if(persona.getUsuario().equals("guia")){
+        }else if(persona.getRol().equals("guia")){
             return "redirect:/";
         }
         return "redirect:/";
