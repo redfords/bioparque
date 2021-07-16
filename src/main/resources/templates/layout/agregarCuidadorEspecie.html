@@ -22,7 +22,7 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="idEspecie">Species:</label>
-                                    <select>
+                                    <select >
                                         <option th:value="0" th:text="Select"></option>
                                         <option th:each="especie : ${especies}" th:value="${especie.idEspecie}" th:text="${especie.nombre}">
                                         </option>

@@ -48,17 +48,17 @@
                                     <tbody>
                                         <tr th:each="cuidadorEspecie, contador : ${cuidadorEspecies}">
                                             <td>[[${contador.count}]]</td>
-                                            <td>[[${cuidadorEspecie.especie.nombre}]]</td>
-                                            <td>[[${cuidadorEspecie.especie.nombreCientifico}]]</td>
-                                            <td>[[${cuidadorEspecie.especie.descripcion}]]</td>
+                                            <td>[[${cuidadorEspecie.nombre}]]</td>
+                                            <td>[[${cuidadorEspecie.nombreCientifico}]]</td>
+                                            <td>[[${cuidadorEspecie.descripcion}]]</td>
                                             <td>
-                                                <a th:href="@{/editarCuidadorEspecie/} + ${cuidadorEspecie.idCuidadorEspecie}"
+                                                <a th:href="@{/editarCuidadorEspecie/} + ${cuidadorEspecie.persona.id}"
                                                    class="btn btn-secondary">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/eliminarCuidadorEspecie(idCuidadorEspecie=${cuidadorEspecie.idCuidadorEspecie})}"
+                                                <a th:href="@{/eliminarCuidadorEspecie(idCuidadorEspecie=${cuidadorEspecie.persona.id})}"
                                                    class="btn btn-dark">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
                                                 </a>

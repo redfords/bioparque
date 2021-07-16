@@ -79,7 +79,7 @@ public class ControladorInicio {
         if(errores.hasErrors()){
             return "modificarCuidadorEspecie";
         }
-        Persona persona = personaRepository.findById(cuidadorEspecie.getPersona().getIdPersona()).orElse(null);
+        Persona persona = personaRepository.findById(cuidadorEspecie.getPersona().getId()).orElse(null);
         especieRepository.save(cuidadorEspecie.getEspecie());
         cuidadorEspecie.setPersona(persona);
         cuidadorEspecieRepository.save(cuidadorEspecie);
@@ -93,19 +93,20 @@ public class ControladorInicio {
         return "redirect:/";
     }
     
-    @GetMapping("/editarPersona/{idPersona}")
+    @GetMapping("/editarPersona/{id}")
     public String editarPersona(Persona persona, Model model){
-        persona = personaRepository.findById(persona.getIdPersona()).orElse(null);
+        persona = personaRepository.findById(persona.getId()).orElse(null);
         model.addAttribute("persona", persona);
         return "modificarPersona";
     }
     
     @GetMapping("/verPersona")
     public String verPersona(Persona persona, Model model){
-        persona = personaRepository.findById(persona.getIdPersona()).orElse(null);
+        persona = personaRepository.findById(persona.getId()).orElse(null);
         if(persona.getRol().equals("cuidador")){
-            List<CuidadorEspecie> cuidadorEspecies = cuidadorEspecieRepository.findByPersona(persona);
-            model.addAttribute("cuidadorEspecies", cuidadorEspecies);
+            //List<Especie> especies = especieRepository.findByPersonaId(persona.getId());
+            //model.addAttribute("cuidadorEspecies", especies);
+            model.addAttribute("especies",especieRepository.findAll());
             return "adminModificarCuidadorEspecie";
         }else if(persona.getRol().equals("guia")){
             return "redirect:/";

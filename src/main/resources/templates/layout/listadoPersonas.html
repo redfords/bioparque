@@ -32,26 +32,26 @@
                                     </thead>
                                     <tbody>
                                         <tr th:each="persona : ${personas}">
-                                            <td>[[${persona.idPersona}]]</td>
+                                            <td>[[${persona.id}]]</td>
                                             <td>[[${persona.nombre}]]</td>
                                             <td>[[${persona.direccion}]]</td>
                                             <td>[[${persona.telefono}]]</td>
                                             <td>[[${persona.fechaIngreso}]]</td>
                                             <td>[[${persona.userName}]]</td>
                                             <td>
-                                                <a th:href="@{/editarPersona/} + ${persona.idPersona}"
+                                                <a th:href="@{/editarPersona/} + ${persona.id}"
                                                    class="btn btn-secondary">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/eliminarPersona(idPersona=${persona.idPersona})}"
+                                                <a th:href="@{/eliminarPersona(id=${persona.id})}"
                                                    class="btn btn-dark">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/verPersona(idPersona=${persona.idPersona})}"
+                                                <a th:href="@{/verPersona(id=${persona.id})}"
                                                    class="btn btn-dark">
                                                     <i class="fas fa-angle-double-right"></i> Ver
                                                 </a>

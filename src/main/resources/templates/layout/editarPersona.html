@@ -10,7 +10,7 @@
         <section th:fragment="editarPersona">
             <form th:action="@{/guardarPersona}" th:object="${persona}"
                   method="POST" class="was-validated">
-                <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+                <input type="hidden" name="id" th:field="*{id}"/>
                 <section th:replace="layout/botonesEditarPersona :: botonesEditarPersona"></section>
                 <div id="details">
                     <div class="container">
