@@ -1,3 +1,3 @@
-# bioparque
+# Ecommerce
 
-A Spring Boot zoo admin app
+An online toy store made with Django.
