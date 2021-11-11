@@ -2,7 +2,7 @@
 
 An online toy store made with Django.
 
-## TODO
+## To Do
 
 - [ ] Email payment confirmation
 - [ ] Documentation - Class Diagrams and Sequence Diagrams
