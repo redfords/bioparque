@@ -2,6 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 
+# Add categoria, producto
+
 from .models import Category, Product
 
 @admin.register(Category)
