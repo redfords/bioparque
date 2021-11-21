@@ -5,6 +5,8 @@ from django.urls import reverse
 
 # Create your models here.
 
+# Add categoria, producto
+
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255, unique=True)
