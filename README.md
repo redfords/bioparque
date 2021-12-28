@@ -1,6 +1,6 @@
 # Ecommerce
 
-An online toy store made with Django.
+An online toy store made with Django and SQLite3.
 
 ## To Do
 
